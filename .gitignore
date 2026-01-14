@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Documents
+*.pdf
+
+# Personal notes (not for repo)
+FLO.txt
+
