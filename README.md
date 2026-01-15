@@ -1,33 +1,31 @@
-# python02_garden_guardian 🌿🛡️
+python02_garden_guardian 🌿🛡️
 
-Proyecto de práctica en Python orientado a consolidar fundamentos, reforzar buenas prácticas y trabajar con una estructura clara por ejercicios.  
+Proyecto de práctica en Python orientado a consolidar fundamentos, reforzar buenas prácticas y trabajar con una estructura clara por ejercicios.
 El objetivo es avanzar de forma progresiva: entender el enunciado, implementar soluciones limpias y comprobar resultados mediante ejecución y pruebas.
 
----
+🎯 Objetivos
 
-## 🎯 Objetivos
+Practicar Python de forma estructurada y progresiva.
 
-- Practicar Python de forma estructurada y progresiva.
-- Mejorar la calidad del código: claridad, orden y responsabilidades.
-- Trabajar la modularidad separando lógica y ejecución.
-- Ejecutar y verificar resultados con comandos simples.
-- Documentar el aprendizaje sin afectar a la entrega final.
+Mejorar la calidad del código: claridad, orden y responsabilidades.
 
----
+Trabajar la modularidad separando lógica y ejecución.
 
-## 🗂️ Estructura del repositorio
+Ejecutar y verificar resultados con comandos simples.
 
-Cada ejercicio está en su propia carpeta (`ex0/`, `ex1/`, …) y contiene el archivo solicitado por el subject.
+Documentar el aprendizaje sin afectar a la entrega final.
 
----
+🗂️ Estructura del repositorio
 
-## ▶️ Cómo ejecutar
+Cada ejercicio está en su propia carpeta (ex0/, ex1/, …) y contiene el archivo solicitado por el subject.
+
+▶️ Cómo ejecutar
 
 Desde la raíz del repositorio:
 
-```bash
 python3 ex0/ft_first_exception.py
 
+✅ Ejercicios
 EX0 — Agricultural Data Validation Pipeline
 
 Archivo: ex0/ft_first_exception.py
@@ -61,7 +59,7 @@ El programa no crashea y finaliza correctamente.
 El formato del output respeta el ejemplo del subject.
 
 💡
-El uso de excepciones permite detectar y gestionar entradas inválidas sin que el programa se detenga. Al capturar los errores con try/except, el programa puede informar del problema y continuar su ejecución de forma controlada, garantizando un comportamiento robusto.
+El uso de excepciones permite detectar y gestionar entradas inválidas sin que el programa se detenga. Al capturar los errores con try/except, el programa informa del problema y continúa su ejecución de forma controlada.
 
 EX1 — Different Types of Problems
 
@@ -81,8 +79,6 @@ KeyError
 
 Uso de bloques try/except para capturar errores específicos.
 
-Demostración de que el programa continúa ejecutándose tras cada error.
-
 Captura de múltiples tipos de error con una sola cláusula except.
 
 Qué demuestra el ejercicio
@@ -91,22 +87,20 @@ Que Python clasifica los errores según el tipo de problema ocurrido.
 
 Que es posible reaccionar de forma distinta según el error detectado.
 
-Que varios errores pueden manejarse conjuntamente cuando el tratamiento es el mismo.
-
 Que un programa robusto puede gestionar fallos sin detener su ejecución.
 
 Resultado esperado
 
-Se muestra un bloque de prueba por cada tipo de error.
+Un bloque de prueba por cada tipo de error.
 
 Cada error se captura y se explica con un mensaje claro.
 
 El programa continúa tras cada fallo y finaliza correctamente.
 
-El formato del output respeta el ejemplo proporcionado en el subject.
+El output respeta el ejemplo del subject.
 
 💡
-Python tiene distintos tipos de errores porque cada uno representa un problema diferente durante la ejecución, lo que permite identificarlos y gestionarlos de forma adecuada. Es posible capturar varios tipos de error con un solo bloque except agrupándolos en una tupla, cuando todos requieren el mismo tratamiento.
+Python define distintos tipos de errores porque cada uno representa un problema diferente durante la ejecución. Agrupar errores en una tupla permite tratarlos de forma conjunta cuando el comportamiento deseado es el mismo.
 
 EX2 — Making Your Own Error Types
 
@@ -114,9 +108,9 @@ Archivo: ex2/ft_custom_errors.py
 
 Qué se practica
 
-Creación de excepciones personalizadas mediante clases que heredan de Exception.
+Creación de excepciones personalizadas heredando de Exception.
 
-Uso de la herencia para organizar errores por dominio (GardenError como base).
+Uso de herencia para organizar errores por dominio (GardenError como base).
 
 Lanzamiento de errores personalizados con raise.
 
@@ -124,26 +118,24 @@ Captura de errores específicos y captura genérica a través de la clase base.
 
 Qué demuestra el ejercicio
 
-Que los errores personalizados permiten expresar mejor el contexto del problema.
+Que los errores personalizados expresan mejor el contexto del problema.
 
-Que la herencia facilita agrupar errores relacionados en una misma familia.
-
-Que es posible manejar errores de forma específica o general según la necesidad.
+Que la herencia permite agrupar errores relacionados.
 
 Que el programa sigue ejecutándose tras capturar los errores.
 
 Resultado esperado
 
-Se lanzan y capturan correctamente errores de tipo PlantError y WaterError.
+Se lanzan y capturan correctamente PlantError y WaterError.
 
 Al capturar GardenError, se capturan también sus errores derivados.
 
-El programa finaliza correctamente mostrando mensajes claros.
+El programa finaliza correctamente con mensajes claros.
 
-El comportamiento y el output siguen el ejemplo proporcionado en el subject.
+El output sigue el ejemplo del subject.
 
 💡
-Las excepciones personalizadas se crean cuando los errores genéricos de Python no expresan bien el contexto del problema y queremos mensajes más claros y manejables dentro de un dominio (por ejemplo, errores del huerto). La herencia ayuda a organizarlas en “familias”: permite capturar errores específicos (PlantError, WaterError) o capturar todos los relacionados con el huerto con una sola excepción base (GardenError).
+Las excepciones personalizadas se utilizan cuando los errores genéricos no describen bien el problema. La herencia permite capturar errores específicos o todos los relacionados con el dominio del huerto de forma flexible.
 
 EX3 — Finally Block: Always Clean Up
 
@@ -161,13 +153,11 @@ Control del flujo mediante valores de retorno (True / False).
 
 Qué demuestra el ejercicio
 
-Que el bloque finally se ejecuta siempre, haya ocurrido un error o no.
+Que finally se ejecuta siempre, haya error o no.
 
 Que la limpieza de recursos no debe depender del resultado del proceso.
 
-Que es posible separar la lógica del sistema de la presentación de resultados.
-
-Que el programa mantiene un estado consistente incluso ante fallos.
+Que se puede separar la lógica del sistema de la presentación de resultados.
 
 Resultado esperado
 
@@ -179,10 +169,10 @@ Ante una planta inválida, se muestra un error claro.
 
 El mensaje de cierre del sistema se imprime siempre.
 
-El programa finaliza correctamente respetando el output del subject.
+El output respeta exactamente el ejemplo del subject.
 
 💡
-El bloque finally garantiza que las acciones de cierre o limpieza se ejecuten siempre, independientemente de si el proceso termina con éxito o con error. Es fundamental para evitar estados inconsistentes y asegurar un comportamiento predecible del programa.
+El bloque finally garantiza que las tareas de cierre o limpieza se ejecuten siempre, evitando estados inconsistentes y asegurando un comportamiento predecible.
 
 EX4 — Raising Errors to Stop Invalid Flow
 
@@ -194,50 +184,72 @@ Validación explícita de datos de entrada.
 
 Uso de raise para lanzar errores cuando las reglas no se cumplen.
 
-Detención del flujo normal del programa ante datos inválidos.
-
-Captura de errores en la función de test para controlar el output.
+Detención del flujo normal ante datos inválidos.
 
 Separación clara entre validación (lógica) y presentación (prints).
 
 Qué demuestra el ejercicio
 
-Que raise se utiliza para señalar errores graves que no deben permitir
-que el programa continúe normalmente.
+Que raise se usa para señalar errores que no deben permitir continuar.
 
-Que los errores se producen en el lugar correcto (donde se valida la regla).
+Que los errores se producen en el lugar correcto (validación).
 
-Que la función principal se mantiene limpia, devolviendo éxito solo cuando
-todos los valores son válidos.
+Que el control del flujo se gestiona desde la función de test.
 
-Que el control del flujo se gestiona desde el test, no desde la lógica.
-
-Que es posible respetar exactamente el output del ejemplo del subject.
+Que el output puede respetarse exactamente.
 
 Casos de prueba incluidos
 
-Valores correctos → la planta se considera saludable.
+Valores correctos → planta saludable.
 
-Nombre de planta vacío → error inmediato.
+Nombre vacío → error inmediato.
 
-Nivel de agua fuera de rango → error con mensaje claro.
+Nivel de agua fuera de rango → error claro.
 
-Horas de sol fuera de rango → error con mensaje específico.
+Horas de sol fuera de rango → error específico.
 
 Resultado esperado
 
-Para valores válidos, se muestra un mensaje de éxito.
+Para valores válidos, mensaje de éxito.
 
-Para cada caso inválido, se lanza y captura un ValueError.
+Para valores inválidos, ValueError lanzado y capturado.
 
 El programa no continúa con datos incorrectos.
 
-El output coincide exactamente con el ejemplo proporcionado en el subject.
-
-El programa finaliza correctamente tras ejecutar todas las pruebas.
+El output coincide con el ejemplo del subject.
 
 💡
-El uso de raise permite detener el flujo normal del programa cuando los datos no cumplen las reglas definidas. A diferencia de devolver valores como False o None, lanzar una excepción obliga a gestionar el error de forma explícita y evita que el sistema continúe en un estado inválido. Esto refuerza la robustez del programa y mantiene separadas la validación de datos y la lógica de presentación.
+Lanzar excepciones obliga a gestionar explícitamente los errores y evita que el sistema continúe en un estado inválido. Esto refuerza la robustez y la separación de responsabilidades.
+
+EX5 — Garden Management System
+
+Ejercicio de integración del módulo Garden Guardian
+
+Este ejercicio combina y reutiliza todos los conceptos trabajados en EX0–EX4, aplicándolos en un sistema único y coherente.
+
+Qué integra
+
+Validación de datos → EX0 y EX4
+
+Uso de raise → EX4
+
+Excepciones personalizadas → EX2
+
+Manejo de errores con try/except → EX1
+
+Uso de finally → EX3
+
+Separación de responsabilidades → hilo conductor del módulo
+
+Uso de clases y estado (GardenManager) → evolución natural del diseño
+
+Control estricto del output → aprendido desde EX0
+
+Idea clave
+EX5 transforma ejercicios aislados en un sistema completo, robusto y defendible.
+
+💡
+EX5 es un ejercicio de integración que reutiliza todos los conceptos del módulo (validación, raise, excepciones personalizadas, try/except y finally) para construir un sistema coherente que gestiona errores sin crashear y garantiza siempre un estado consistente.
 
 📝 Notas personales
 
