@@ -1,5 +1,5 @@
 FAQ – Garden Guardian (Python Error Handling)
-============================================
+=============================================
 
 Este archivo recoge dudas habituales y explicaciones conceptuales
 relacionadas con el módulo Garden Guardian.
@@ -7,115 +7,123 @@ relacionadas con el módulo Garden Guardian.
 NO forma parte del proyecto a entregar.
 Sirve como apoyo personal para el aprendizaje, la revisión y la defensa.
 
+
 ------------------------------------------------------------
 1) ¿Por qué el programa no debe crashear nunca?
 ------------------------------------------------------------
 Porque el objetivo del módulo es aprender a manejar errores de forma controlada.
 Un programa robusto no evita todos los fallos: los detecta, los gestiona y
-continúa funcionando sin detenerse.
+continúa su ejecución sin detenerse.
 
-Idea clave: “Robusto” = “se recupera”, no “nunca falla”.
+Idea clave:
+“Robusto” no significa “nunca falla”, sino “sabe recuperarse”.
 
 
 ------------------------------------------------------------
 2) ¿Qué significa “separación de responsabilidades” en este módulo?
 ------------------------------------------------------------
-Significa que cada función debería encargarse de una sola cosa.
+Significa que cada función debe encargarse de una sola tarea concreta.
 
-Ejemplo típico:
-- Una función valida datos y devuelve un resultado (o lanza un error).
-- Otra función (tests / main) decide cómo mostrar mensajes (prints) y
-  demuestra que el programa sigue ejecutándose.
+Ejemplo habitual:
+- Una función valida datos y devuelve un resultado o lanza un error.
+- Otra función (tests / main) se encarga de los prints y de demostrar
+  que el programa continúa ejecutándose.
 
-Ventaja: el código es más reutilizable, más fácil de testear y más defendible.
+Ventajas:
+- Código más claro
+- Funciones reutilizables
+- Más fácil de testear y defender
 
 
 ------------------------------------------------------------
 3) ¿Por qué check_temperature devuelve un valor en lugar de imprimirlo?
 ------------------------------------------------------------
 Porque el enunciado pide explícitamente “Returns the temperature if it’s valid”.
-Devolver un valor permite reutilizar esa función en otros contextos sin depender
-de mensajes por pantalla (por ejemplo, en un sistema mayor como el EX5).
+Devolver valores permite reutilizar la función en otros contextos sin depender
+de la salida por pantalla (por ejemplo, en ejercicios posteriores).
 
-Idea clave: devolver datos ≠ mostrar datos.
+Idea clave:
+Devolver datos ≠ mostrar datos.
 
 
 ------------------------------------------------------------
 4) ¿Por qué usar try/except en lugar de comprobar todo con if?
 ------------------------------------------------------------
-Porque hay errores que no se detectan solo con if, como cuando una cadena no se
-puede convertir a número. En esos casos, Python lanza una excepción (ValueError)
-y la forma correcta de gestionarlo es capturarla con try/except.
+Porque hay errores que no se pueden detectar solo con if, como cuando una cadena
+no puede convertirse a número. En esos casos Python lanza una excepción
+(ValueError), y la forma correcta de manejarla es con try/except.
 
-Try/except es la herramienta para “errores de ejecución”, no para lógica normal.
+Idea clave:
+try/except se usa para errores de ejecución, no para lógica normal.
 
 
 ------------------------------------------------------------
 5) ¿Qué ocurre cuando hago int("abc")?
 ------------------------------------------------------------
-Python lanza ValueError porque "abc" no es un número válido.
+Python lanza un ValueError porque "abc" no representa un número válido.
 Si no se captura, el programa se detiene. Si se captura, se puede mostrar un
-mensaje claro y seguir ejecutando el resto del programa.
+mensaje claro y continuar con la ejecución del resto del programa.
 
 
 ------------------------------------------------------------
 6) ¿Por qué lanzar errores (raise) en lugar de imprimirlos directamente?
 ------------------------------------------------------------
-Porque lanzar errores permite que otra parte del programa decida qué hacer:
+Porque lanzar errores permite que otra parte del programa decida cómo actuar:
 - mostrar un mensaje
 - probar otra opción
 - registrar el fallo
 - continuar con otros datos
 
-Esto hace el diseño más flexible y escalable.
+Esto hace el diseño más flexible, limpio y escalable.
 
 
 ------------------------------------------------------------
 7) ¿Por qué el mensaje de error debe ser claro y específico?
 ------------------------------------------------------------
-Porque el objetivo no es solo “que no crashee”, sino que sea fácil entender
-qué falló y por qué. Un buen mensaje reduce tiempo de depuración y ayuda a
-quien usa el programa a corregir la entrada.
+Porque el objetivo no es solo evitar el crash, sino facilitar la comprensión
+de qué ha fallado y por qué.
 
-Un buen error:
+Un buen mensaje de error:
 - indica el valor problemático
-- dice el motivo
-- da el rango o regla esperada
+- explica el motivo del fallo
+- menciona la regla o rango esperado
 
 
 ------------------------------------------------------------
 8) ¿Por qué es importante respetar el output del ejemplo?
 ------------------------------------------------------------
-Porque el formato del output puede formar parte de la validación.
-Saltos de línea, espacios y texto deben coincidir con el ejemplo para evitar
-errores en evaluación o confusiones al revisar.
+Porque en ejercicios evaluados el formato del output puede formar parte de la
+validación. Saltos de línea, espacios y texto deben coincidir con el ejemplo.
 
-Consejo: controlar el formato con prints explícitos, no con “\n” por todas partes.
+Consejo práctico:
+Controlar el formato con print() explícitos, no con “\n” incrustados en los textos.
 
 
 ------------------------------------------------------------
 9) ¿Qué aporta finally frente a try/except?
 ------------------------------------------------------------
-finally se ejecuta siempre, ocurra o no un error.
-Sirve para “limpiar” y dejar el sistema en un estado seguro:
+finally se ejecuta siempre, haya ocurrido un error o no.
+Se utiliza para garantizar acciones de cierre o limpieza, como:
 - cerrar recursos
-- “apagar” un sistema simulado
-- garantizar mensajes de cierre
-- evitar que el programa quede a medias
+- finalizar procesos simulados
+- dejar el programa en un estado consistente
 
-Idea clave: finally = “cleanup garantizado”.
+Idea clave:
+finally = “cleanup garantizado”.
 
 
 ------------------------------------------------------------
 10) ¿Cuándo tiene sentido crear errores personalizados?
 ------------------------------------------------------------
-Cuando los errores genéricos no expresan bien el contexto del problema.
-En sistemas con dominio (jardín / sensores / agricultura), errores específicos:
+Cuando los errores genéricos de Python no expresan bien el contexto del problema.
+En sistemas con dominio concreto (huerto, sensores, agricultura), los errores
+personalizados:
 - hacen el código más expresivo
 - facilitan el manejo por tipo
-- permiten agruparlos con herencia (GardenError -> PlantError/WaterError)
+- permiten agruparlos mediante herencia
 
-Idea clave: herencia para organizar familias de errores.
+Idea clave:
+Herencia para organizar familias de errores.
 
 
 ------------------------------------------------------------
@@ -128,7 +136,8 @@ Significa priorizar:
 - funciones pequeñas
 - evitar sobre-ingeniería
 
-Un código simple y explicable suele ser más valorado que uno “muy listo”.
+Un código simple y bien explicado suele ser más valorado que uno complejo
+difícil de justificar.
 
 
 ------------------------------------------------------------
@@ -136,31 +145,34 @@ Un código simple y explicable suele ser más valorado que uno “muy listo”.
 ------------------------------------------------------------
 Que puedas:
 - explicar qué tipo de error ocurre en cada caso (ValueError, KeyError…)
-- justificar por qué usas try/except/finally
-- demostrar que entiendes el flujo cuando algo falla
-- razonar decisiones (por qué devuelves valores, por qué lanzas errores, etc.)
-- mostrar que tu programa se recupera y continúa
+- justificar el uso de try/except/finally
+- describir el flujo del programa cuando ocurre un fallo
+- razonar tus decisiones de diseño
+- demostrar que el programa se recupera y continúa
 
 
 ------------------------------------------------------------
 13) ¿Qué significa “Authorized” en el enunciado?
 ------------------------------------------------------------
-Normalmente indica las herramientas mínimas/conceptos que se esperan para
-resolver el ejercicio (lo que se quiere practicar).
-No suele ser una “lista cerrada” de prohibiciones, salvo que el enunciado lo diga
+Indica los conceptos y herramientas mínimas que se espera que utilices.
+No suele ser una lista cerrada de prohibiciones, salvo que el subject lo indique
 explícitamente.
 
 Regla práctica:
-- No uses librerías externas ni “trucos” que eviten el objetivo del ejercicio.
-- Usa herramientas estándar de Python con sentido (built-ins).
+- No usar librerías externas
+- No evitar el objetivo del ejercicio
+- Usar built-ins de Python con sentido y claridad
 
 
 ------------------------------------------------------------
 14) ¿Está bien usar enumerate aunque no aparezca en “Authorized”?
 ------------------------------------------------------------
-Sí, si se usa para control de bucle/formato y no para evitar lo que se evalúa.
-enumerate es una función built-in y ayuda a escribir código más claro.
-Ejemplo típico: controlar saltos de línea entre tests sin añadir líneas extra al final.
+Sí, siempre que se use como apoyo al control del bucle o al formato del output,
+y no para evitar lo que se está evaluando.
 
-Idea clave: enumerate mejora el control del flujo, no sustituye try/except.
+enumerate es una función built-in y ayuda a escribir código más claro.
+Ejemplo típico: controlar saltos de línea entre tests sin añadir líneas extra.
+
+Idea clave:
+enumerate mejora el control del flujo, no sustituye el manejo de errores.
 

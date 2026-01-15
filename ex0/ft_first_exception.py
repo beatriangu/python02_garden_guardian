@@ -43,4 +43,3 @@ def test_temperature_input():
 
 if __name__ == "__main__":
     test_temperature_input()
-

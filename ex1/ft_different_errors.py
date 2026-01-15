@@ -5,9 +5,6 @@ File: ft_different_errors.py
 
 
 def garden_operations():
-    """
-    Demonstrates common Python error types that can happen in a garden program.
-    """
     tests = [
         ("ValueError", lambda: int("abc")),
         ("ZeroDivisionError", lambda: 10 / 0),
@@ -51,5 +48,3 @@ def test_error_types():
 
 if __name__ == "__main__":
     test_error_types()
-
-
