@@ -1,18 +1,34 @@
-# Python cache
+# =========================
+# Python cache & bytecode
+# =========================
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 
-# Virtual env
-.venv/
+# =========================
+# Virtual environments
+# =========================
 venv/
+.venv/
 
-# OS
+# =========================
+# OS / System files
+# =========================
 .DS_Store
 
-# Documents
-*.pdf
+# =========================
+# Editor configuration
+# =========================
+.vscode/
 
-# Personal notes (not for repo)
-FLO.txt
+# =========================
+# Learning documentation (local only)
+# =========================
+MAP.md
+_Map.md
+map.md
+
+# =========================
+# Generated documents
+# =========================
+*.pdf
 

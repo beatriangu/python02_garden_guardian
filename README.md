@@ -1,86 +1,91 @@
-python02_garden_guardian 🌿🛡️
+🌱 Python Garden — Data Guard
+Garden Guardian · Data Engineering for Smart Agriculture
 
-Proyecto de práctica en Python orientado a consolidar fundamentos, reforzar buenas prácticas y trabajar con una estructura clara por ejercicios.
-El objetivo es avanzar de forma progresiva: entender el enunciado, implementar soluciones limpias y verificar resultados mediante ejecución y pruebas.
+Repository: python02_data_guard
 
-🎯 Objetivos
+This repository is part of the Python Garden learning path and contains the exercises developed in the Data Guard module (also known as Garden Guardian).
 
-Practicar Python de forma estructurada y progresiva.
+The focus of this module is robust error handling and defensive programming in Python, applied to realistic data engineering scenarios inspired by smart agriculture systems.
 
-Mejorar la calidad del código: claridad, orden y separación de responsabilidades.
+Building on the foundations of Python basics (Module 00) and Object-Oriented Programming (Module 01), this module introduces the mindset required to design resilient systems that continue working when things go wrong.
 
-Reforzar la modularidad, separando lógica y ejecución.
+🎯 Learning Objectives
 
-Ejecutar y comprobar resultados con comandos simples.
+Throughout this module, the learner develops the ability to:
 
-Documentar el aprendizaje sin afectar a la entrega final.
+Understand why errors happen in real-world programs
 
-🗂️ Estructura del repositorio
+Use try, except, else, and finally blocks correctly
 
-Cada ejercicio vive en su propia carpeta (ex0/, ex1/, …) e incluye el archivo solicitado por el subject.
+Identify and handle different built-in exception types
 
-▶️ Cómo ejecutar
+Create custom exception classes for domain-specific errors
 
-Desde la raíz del repositorio:
+Raise meaningful errors with clear, helpful messages
 
-python3 ex0/ft_first_exception.py
+Design programs that never crash unexpectedly
 
-✅ Resumen del módulo
+Build fault-tolerant data pipelines that recover gracefully from failure
 
-EX0–EX1 → errores capturados → programa robusto
+The emphasis is not on avoiding errors, but on handling them intentionally and safely.
 
-EX2 → errores con significado de dominio (excepciones personalizadas)
+🧠 Core Concepts Covered
 
-EX3 → finally garantiza un estado consistente
+Exception handling with try / except
 
-EX4 → raise corta el flujo lógico, pero el programa solo se detiene si no se captura la excepción
+Catching specific vs generic exceptions
 
-EX5 → integración completa y coherente del módulo
+Multiple exception handling strategies
 
-En Python, lanzar una excepción con raise indica que el flujo normal no debe continuar, pero solo la ausencia de captura detiene el programa. El control real del flujo se gestiona con try/except.
+Custom exception classes and inheritance
 
-✅ Detalle de ejercicios
-EX0 — Agricultural Data Validation Pipeline
+The finally block and guaranteed cleanup
 
-Archivo: ex0/ft_first_exception.py
+Raising errors with raise
 
-Qué se practica
+Defensive programming principles
 
-Conversión de entrada de texto a número con int().
+Designing systems that remain stable under failure
 
-Manejo de errores con try/except para evitar bloqueos.
+📐 General Rules & Constraints
 
-Validación de rango (temperatura válida entre 0°C y 40°C).
+As defined by the official subject:
 
-Escritura de un programa robusto que continúa tras errores controlados.
+All programs are written in Python 3.10+
 
-Casos de prueba incluidos
+Code follows flake8 / PEP 8 standards
 
-Entrada válida: "25"
+Each exercise is contained in its own file
 
-No numérica: "abc"
+Simple docstrings are included for functions and classes
 
-Fuera de rango alto: "100"
+Both normal execution and error scenarios must be demonstrated
 
-Fuera de rango bajo: "-50"
+Only authorized functions and constructs are used per exercise
 
-Resultado esperado
+Programs must never crash
 
-Mensajes claros de éxito o error por cada caso.
+Solutions are intentionally simple and focused on learning
 
-El programa no crashea y finaliza correctamente.
+This module prioritizes clarity, correctness, and robustness over complexity.
 
-El output respeta el formato del subject.
+🗂️ Exercise Overview & Progression
 
-💡 Idea clave: capturar excepciones permite gestionar entradas inválidas sin detener el programa y mantener el flujo controlado.
+The exercises follow a clear and incremental progression, each introducing a new layer of resilience:
 
-EX1 — Different Types of Problems
+ex0 — Agricultural Data Validation Pipeline
 
-Archivo: ex1/ft_different_errors.py
+First contact with try / except
 
-Qué se practica
+Input validation and type conversion
 
-Identificación y manejo de errores típicos:
+Graceful handling of invalid sensor data
+
+Ensuring the program keeps running despite errors
+
+ex1 — Different Types of Problems
+
+Exploration of common built-in exceptions:
 
 ValueError
 
@@ -90,169 +95,99 @@ FileNotFoundError
 
 KeyError
 
-Captura de errores específicos con except dedicado.
+Catching errors individually and together
 
-Captura conjunta con una tupla de errores cuando el tratamiento es el mismo.
+Understanding why different error types exist
 
-Qué demuestra
+ex2 — Making Your Own Error Types
 
-Que Python clasifica fallos según el tipo de problema.
+Creation of custom exception classes
 
-Que se puede reaccionar de forma distinta según el error.
+Error hierarchy using inheritance
 
-Que un programa robusto puede continuar tras fallos controlados.
+Domain-specific errors (GardenError, PlantError, WaterError)
 
-Resultado esperado
+Catching grouped errors via a base exception
 
-Un bloque de prueba por tipo de error.
+ex3 — Finally Block: Always Clean Up
 
-Mensaje claro por cada captura.
+Introduction to the finally block
 
-El programa finaliza correctamente respetando el output del subject.
+Guaranteed cleanup regardless of success or failure
 
-💡 Idea clave: agrupar errores en una tupla permite simplificar el código cuando el comportamiento esperado es idéntico.
+Resource management mindset
 
-EX2 — Making Your Own Error Types
+Ensuring system stability even during errors
 
-Archivo: ex2/ft_custom_errors.py
+ex4 — Raising Your Own Errors
 
-Qué se practica
+Using raise to signal invalid states
 
-Creación de excepciones personalizadas heredando de Exception.
+Validating inputs explicitly
 
-Herencia para organizar errores por dominio (GardenError como base).
+Designing helpful and precise error messages
 
-Lanzamiento de errores con raise.
+Differentiating between detection and handling of errors
 
-Captura específica (errores concretos) y genérica (clase base).
+ex5 — Garden Management System
 
-Qué demuestra
+Integration of all previous concepts
 
-Que los errores personalizados expresan mejor el contexto.
+A complete system using:
 
-Que la herencia permite capturar familias de errores con flexibilidad.
+Custom exceptions
 
-Resultado esperado
+try / except / finally
 
-Se lanzan y capturan correctamente PlantError y WaterError.
+Error recovery strategies
 
-Capturar GardenError captura también los errores derivados.
+Demonstrates how resilient systems behave under failure
 
-Mensajes claros y output alineado con el subject.
+Focus on continuity, stability, and clarity
 
-💡 Idea clave: las excepciones personalizadas mejoran la lectura y hacen el sistema más mantenible y defendible.
+🧠 Design Philosophy
 
-EX3 — Finally Block: Always Clean Up
+Across all exercises, the following principles are consistently applied:
 
-Archivo: ex3/ft_finally_block.py
+Programs are designed to fail safely
 
-Qué se practica
+Errors are expected, not exceptional
 
-Uso de finally para garantizar acciones de cierre/limpieza.
+Each error has a clear meaning and purpose
 
-Simulación de apertura/cierre de un sistema (riego).
+Responsibility is explicit: detect, raise, handle
 
-Manejo de errores durante el proceso.
+Cleanup is guaranteed
 
-Control del flujo mediante valores de retorno (True/False).
+Systems remain usable even when operations fail
 
-Qué demuestra
+This module reflects a shift from “making code work” to making systems reliable.
 
-Que finally se ejecuta siempre, haya error o no.
+🧪 Code Quality
 
-Que la limpieza de recursos no debe depender del éxito del proceso.
+Fully compliant with flake8 and PEP 8
 
-Separación entre lógica y presentación.
+Clear, minimal, and readable code
 
-Resultado esperado
+No unexpected crashes
 
-El sistema de riego se abre antes del proceso.
+Learning-only documentation excluded via .gitignore
 
-Se riegan plantas válidas.
+🚀 Conclusion
 
-Ante una planta inválida, se muestra un error claro.
+The Data Guard module introduces a critical professional skill:
+building software that survives real-world failure.
 
-El cierre se imprime siempre.
+By the end of this repository, the learner demonstrates not only knowledge of Python exceptions, but a defensive programming mindset essential for data engineering, backend development, and production systems.
 
-Output exacto al ejemplo del subject.
+This module forms a direct bridge toward:
 
-💡 Idea clave: finally asegura consistencia y evita estados incoherentes.
+More advanced data pipelines
 
-EX4 — Raising Errors to Stop Invalid Flow
+File and stream management
 
-Archivo: ex4/ft_raise_errors.py
+Backend robustness
 
-Qué se practica
+Production-grade error handling
 
-Validación explícita de datos de entrada.
-
-Uso de raise para marcar condiciones inválidas.
-
-Detención del flujo normal ante datos incorrectos.
-
-Separación clara entre validación (lógica) y print (presentación).
-
-Qué demuestra
-
-Que raise señala errores que no deben permitir continuar.
-
-Que los errores se generan donde corresponde: en la validación.
-
-Que el flujo se controla desde el test con try/except.
-
-Que el output puede respetarse exactamente.
-
-Casos de prueba incluidos
-
-Valores correctos → planta saludable.
-
-Nombre vacío → error inmediato.
-
-Agua fuera de rango → error claro.
-
-Sol fuera de rango → error específico.
-
-Resultado esperado
-
-Valores válidos → éxito.
-
-Valores inválidos → ValueError lanzado y capturado.
-
-El programa no avanza con datos incorrectos.
-
-Output idéntico al subject.
-
-💡 Idea clave: lanzar excepciones fuerza el tratamiento explícito de errores y refuerza robustez y separación de responsabilidades.
-
-EX5 — Garden Management System
-
-Ejercicio de integración del módulo Garden Guardian
-
-Este ejercicio combina y reutiliza todos los conceptos trabajados en EX0–EX4, aplicándolos a un sistema único y coherente.
-
-Qué integra
-
-Validación de datos → EX0 y EX4
-
-Uso de raise → EX4
-
-Excepciones personalizadas → EX2
-
-Manejo con try/except → EX1
-
-finally para consistencia → EX3
-
-Separación de responsabilidades → hilo conductor del módulo
-
-Uso de clases y estado (GardenManager) → evolución natural del diseño
-
-Control estricto del output → aprendido desde EX0
-
-Idea clave: EX5 transforma ejercicios aislados en un sistema completo, robusto y defendible.
-
-💡 Idea clave: integración real = diseño consistente + manejo de errores sin crashear + estado siempre controlado.
-
-📝 Notas personales
-
-El repositorio puede incluir archivos como FAQ.txt con explicaciones conceptuales y reflexiones personales.
-Estos archivos no forman parte de la entrega y se usan únicamente como apoyo para el aprendizaje y la preparación de la defensa.
+📌 Module completed — Python Garden · Data Guard 🌱
