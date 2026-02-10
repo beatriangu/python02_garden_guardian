@@ -21,14 +21,8 @@ venv/
 .vscode/
 
 # =========================
-# Learning documentation (local only)
-# =========================
-MAP.md
-_Map.md
-map.md
-
-# =========================
 # Generated documents
 # =========================
 *.pdf
+
 
